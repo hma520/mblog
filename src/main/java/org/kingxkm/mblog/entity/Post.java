@@ -6,18 +6,30 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_post")
 public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long postId;
+
+    private Long id;
     private String title;
     private String content;
+    private User user;
 
-    public Long getPostId() {
-        return postId;
+    // 基于user_id列的多对一关系定义.
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    public User getUser() {
+        return user;
     }
 
-    public void setPostId(Long postId) {
-        this.postId = postId;
+    public void setUser(User user) {
+        this.user = user;
+    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {

@@ -27,13 +27,13 @@
             <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="database" value="${jdbc.database}"/>
                 <property name="showSql" value="true"/>
-                <property name="generateDdl" value="true"/> <!--此处设置为true,则hibernate.hbm2ddl.auto不设置-->
+                <property name="generateDdl" value="false"/> <!--此处设置为true,则hibernate.hbm2ddl.auto不设置-->
             </bean>
         </property>
         <property name="packagesToScan" value="org.kingxkm.mblog.entity"/>
         <property name="jpaProperties">
             <props>
-                <!-- 命名规则 My_NAME->MyName -->
+                <!-- 命名规则 My_NAME->MyName , -->
                 <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
                 <!--<prop key="hibernate.hbm2ddl.auto">update</prop> &lt;!&ndash;create|create-drop|update|validate: &ndash;&gt;-->
             </props>
